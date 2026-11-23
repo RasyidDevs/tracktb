@@ -1,0 +1,155 @@
+﻿kode_bps,tahun,provinsi,kabupaten_kota,tc_resmi_pct,tc_percentage_prediksi,tc_percentage,sumber_tc_percentage,model_tc_percentage_prediksi,tc_percentage_prediksi_xgboost,tc_percentage_prediksi_lightgbm,tc_percentage_prediksi_catboost,jumlah_tetangga_tersedia,jumlah_tetangga_dipakai,kode_bps_tetangga
+1101,2025,Aceh,Simeulue,,45.2,45.2,estimasi model,XGBoost L2 d3 [insiden tetangga],45.2,45.52,49.57,0,0,
+1102,2025,Aceh,Aceh Singkil,,45.28,45.28,estimasi model,XGBoost L2 d3 [insiden tetangga],45.28,49.88,46.37,4,4,1175|1216|1103|1204
+1103,2025,Aceh,Aceh Selatan,,78.37,78.37,estimasi model,XGBoost L2 d3 [insiden tetangga],78.37,63.22,50.41,5,5,1104|1175|1112|1102|1113
+1104,2025,Aceh,Aceh Tenggara,,80.87,80.87,estimasi model,XGBoost L2 d3 [insiden tetangga],80.87,65.27,68.72,6,5,1103|1213|1113|1211|1210
+1105,2025,Aceh,Aceh Timur,,72.16,72.16,estimasi model,XGBoost L2 d3 [insiden tetangga],72.16,56.44,56.1,6,5,1111|1106|1113|1114|1173
+1106,2025,Aceh,Aceh Tengah,,44.21,44.21,estimasi model,XGBoost L2 d3 [insiden tetangga],44.21,41.47,47.84,7,5,1117|1113|1115|1105|1107
+1107,2025,Aceh,Aceh Barat,,51.08,51.08,estimasi model,XGBoost L2 d3 [insiden tetangga],51.08,56.06,49.22,4,4,1115|1116|1106|1109
+1108,2025,Aceh,Aceh Besar,,43.79,43.79,estimasi model,XGBoost L2 d3 [insiden tetangga],43.79,42.78,53.85,3,3,1109|1116|1171
+1109,2025,Aceh,Pidie,,59.07,59.07,estimasi model,XGBoost L2 d3 [insiden tetangga],59.07,55.4,47.63,6,5,1118|1108|1116|1107|1106
+1110,2025,Aceh,Bireuen,,58.67,58.67,estimasi model,XGBoost L2 d3 [insiden tetangga],58.67,62.5,62.59,5,5,1111|1118|1106|1117|1109
+1111,2025,Aceh,Aceh Utara,,44.22,44.22,estimasi model,XGBoost L2 d3 [insiden tetangga],44.22,39.09,46.21,4,4,1105|1117|1110|1174
+1112,2025,Aceh,Aceh Barat Daya,,46.9,46.9,estimasi model,XGBoost L2 d3 [insiden tetangga],46.9,47.75,48.85,3,3,1113|1115|1103
+1113,2025,Aceh,Gayo Lues,,57.51,57.51,estimasi model,XGBoost L2 d3 [insiden tetangga],57.51,61.83,57.18,8,5,1112|1106|1104|1114|1105
+1114,2025,Aceh,Aceh Tamiang,,44.17,44.17,estimasi model,XGBoost L2 d3 [insiden tetangga],44.17,41.77,48.58,4,4,1213|1113|1105|1173
+1115,2025,Aceh,Nagan Raya,,75.16,75.16,estimasi model,XGBoost L2 d3 [insiden tetangga],75.16,66.08,52.29,4,4,1107|1106|1112|1113
+1116,2025,Aceh,Aceh Jaya,,63.53,63.53,estimasi model,XGBoost L2 d3 [insiden tetangga],63.53,67.89,66.18,3,3,1108|1109|1107
+1117,2025,Aceh,Bener Meriah,,46.09,46.09,estimasi model,XGBoost L2 d3 [insiden tetangga],46.09,51.35,56.11,4,4,1106|1111|1105|1110
+1118,2025,Aceh,Pidie Jaya,,49.83,49.83,estimasi model,XGBoost L2 d3 [insiden tetangga],49.83,50.64,59.98,2,2,1109|1110
+1171,2025,Aceh,Kota Banda Aceh,,89.52,89.52,estimasi model,XGBoost L2 d3 [insiden tetangga],89.52,82.74,91.37,1,1,1108
+1172,2025,Aceh,Kota Sabang,,59.33,59.33,estimasi model,XGBoost L2 d3 [insiden tetangga],59.33,63.9,47.66,0,0,
+1173,2025,Aceh,Kota Langsa,,65.17,65.17,estimasi model,XGBoost L2 d3 [insiden tetangga],65.17,68.06,67.13,2,2,1105|1114
+1174,2025,Aceh,Kota Lhokseumawe,,80.04,80.04,estimasi model,XGBoost L2 d3 [insiden tetangga],80.04,79.82,85.56,1,1,1111
+1175,2025,Aceh,Kota Subulussalam,,73.41,73.41,estimasi model,XGBoost L2 d3 [insiden tetangga],73.41,64.23,73.88,5,5,1103|1102|1210|1216|1104
+1201,2025,Sumatera Utara,Nias,,109.01,109.01,estimasi model,XGBoost L2 d3 [insiden tetangga],109.01,56.98,44.14,4,4,1278|1214|1225|1224
+1202,2025,Sumatera Utara,Mandailing Natal,,48.75,48.75,estimasi model,XGBoost L2 d3 [insiden tetangga],48.75,55.4,55.79,4,4,1203|1312|1309|1221
+1203,2025,Sumatera Utara,Tapanuli Selatan,,47.7,47.7,estimasi model,XGBoost L2 d3 [insiden tetangga],47.7,55.4,56.47,7,5,1220|1202|1205|1204|1277
+1204,2025,Sumatera Utara,Tapanuli Tengah,,59.6,59.6,estimasi model,XGBoost L2 d3 [insiden tetangga],59.6,61.56,55.19,6,5,1203|1205|1215|1102|1271
+1205,2025,Sumatera Utara,Tapanuli Utara,,62.45,62.45,estimasi model,XGBoost L2 d3 [insiden tetangga],62.45,69.4,68.09,5,5,1203|1204|1215|1206|1223
+1206,2025,Sumatera Utara,Toba Samosir,,60.18,60.18,estimasi model,XGBoost L2 d3 [insiden tetangga],60.18,66.65,68.97,4,4,1223|1208|1205|1209
+1207,2025,Sumatera Utara,Labuhan Batu,,49.38,49.38,estimasi model,XGBoost L2 d3 [insiden tetangga],49.38,49.9,48.49,4,4,1223|1222|1220|1409
+1208,2025,Sumatera Utara,Asahan,,50.97,50.97,estimasi model,XGBoost L2 d3 [insiden tetangga],50.97,57.42,59.66,5,5,1209|1223|1206|1219|1272
+1209,2025,Sumatera Utara,Simalungun,,54.99,54.99,estimasi model,XGBoost L2 d3 [insiden tetangga],54.99,55.93,59.12,7,5,1218|1219|1208|1273|1212
+1210,2025,Sumatera Utara,Dairi,,97.57,97.57,estimasi model,XGBoost L2 d3 [insiden tetangga],97.57,71.29,67.73,5,5,1211|1216|1175|1217|1104
+1211,2025,Sumatera Utara,Karo,,58.72,58.72,estimasi model,XGBoost L2 d3 [insiden tetangga],58.72,66.1,68.88,5,5,1210|1213|1104|1212|1209
+1212,2025,Sumatera Utara,Deli Serdang,,50.59,50.59,estimasi model,XGBoost L2 d3 [insiden tetangga],50.59,51.99,43.41,6,5,1275|1213|1218|1211|1209
+1213,2025,Sumatera Utara,Langkat,,56.44,56.44,estimasi model,XGBoost L2 d3 [insiden tetangga],56.44,58.42,49.69,6,5,1114|1212|1104|1211|1276
+1214,2025,Sumatera Utara,Nias Selatan,,32.86,32.86,estimasi model,XGBoost L2 d3 [insiden tetangga],32.86,32.91,39.04,2,2,1201|1225
+1215,2025,Sumatera Utara,Humbang Hasundutan,,58.64,58.64,estimasi model,XGBoost L2 d3 [insiden tetangga],58.64,73.21,66.67,4,4,1204|1205|1217|1216
+1216,2025,Sumatera Utara,Pakpak Bharat,,82.98,82.98,estimasi model,XGBoost L2 d3 [insiden tetangga],82.98,75.58,73.92,6,5,1210|1215|1102|1175|1217
+1217,2025,Sumatera Utara,Samosir,,74.65,74.65,estimasi model,XGBoost L2 d3 [insiden tetangga],74.65,56.76,52.76,3,3,1215|1210|1216
+1218,2025,Sumatera Utara,Serdang Bedagai,,52.03,52.03,estimasi model,XGBoost L2 d3 [insiden tetangga],52.03,55.29,50.11,4,4,1209|1212|1274|1219
+1219,2025,Sumatera Utara,Batu Bara,,57.18,57.18,estimasi model,XGBoost L2 d3 [insiden tetangga],57.18,69.3,65.59,3,3,1209|1208|1218
+1220,2025,Sumatera Utara,Padang Lawas Utara,,50.01,50.01,estimasi model,XGBoost L2 d3 [insiden tetangga],50.01,50.02,57.82,7,5,1203|1222|1221|1207|1407
+1221,2025,Sumatera Utara,Padang Lawas,,53.36,53.36,estimasi model,XGBoost L2 d3 [insiden tetangga],53.36,51.66,51.95,5,5,1220|1407|1202|1309|1203
+1222,2025,Sumatera Utara,Labuhan Batu Selatan,,52.42,52.42,estimasi model,XGBoost L2 d3 [insiden tetangga],52.42,51.12,53.88,3,3,1220|1409|1207
+1223,2025,Sumatera Utara,Labuhan Batu Utara,,51.28,51.28,estimasi model,XGBoost L2 d3 [insiden tetangga],51.28,50.73,53.18,6,5,1207|1206|1208|1203|1220
+1224,2025,Sumatera Utara,Nias Utara,,38.1,38.1,estimasi model,XGBoost L2 d3 [insiden tetangga],38.1,45.58,38.21,3,3,1225|1278|1201
+1225,2025,Sumatera Utara,Nias Barat,,45.76,45.76,estimasi model,XGBoost L2 d3 [insiden tetangga],45.76,46.76,41.49,3,3,1201|1214|1224
+1271,2025,Sumatera Utara,Kota Sibolga,,122.11,122.11,estimasi model,XGBoost L2 d3 [insiden tetangga],122.11,93.81,93.83,1,1,1204
+1272,2025,Sumatera Utara,Kota Tanjung Balai,,72.24,72.24,estimasi model,XGBoost L2 d3 [insiden tetangga],72.24,74.53,78.04,1,1,1208
+1273,2025,Sumatera Utara,Kota Pematang Siantar,,99.73,99.73,estimasi model,XGBoost L2 d3 [insiden tetangga],99.73,96.12,91.61,1,1,1209
+1274,2025,Sumatera Utara,Kota Tebing Tinggi,,98.8,98.8,estimasi model,XGBoost L2 d3 [insiden tetangga],98.8,85.07,94.63,1,1,1218
+1275,2025,Sumatera Utara,Kota Medan,,69.34,69.34,estimasi model,XGBoost L2 d3 [insiden tetangga],69.34,66.34,62.99,1,1,1212
+1276,2025,Sumatera Utara,Kota Binjai,,59.84,59.84,estimasi model,XGBoost L2 d3 [insiden tetangga],59.84,67.73,66.97,2,2,1213|1212
+1277,2025,Sumatera Utara,Kota Padangsidimpuan,,60.88,60.88,estimasi model,XGBoost L2 d3 [insiden tetangga],60.88,63.14,69.86,1,1,1203
+1278,2025,Sumatera Utara,Kota Gunungsitoli,,52.49,52.49,estimasi model,XGBoost L2 d3 [insiden tetangga],52.49,56.97,55.03,2,2,1201|1224
+1301,2025,Sumatera Barat,Kepulauan Mentawai,38.0,50.88,38.0,resmi,XGBoost L2 d3 [insiden tetangga],50.88,52.69,58.1,0,0,
+1302,2025,Sumatera Barat,Pesisir Selatan,64.0,59.27,64.0,resmi,XGBoost L2 d3 [insiden tetangga],59.27,59.27,55.12,6,5,1303|1310|1501|1706|1371
+1303,2025,Sumatera Barat,Solok,36.0,40.99,36.0,resmi,XGBoost L2 d3 [insiden tetangga],40.99,49.55,41.99,9,5,1310|1302|1304|1372|1373
+1304,2025,Sumatera Barat,Sijunjung,44.0,39.07,44.0,resmi,XGBoost L2 d3 [insiden tetangga],39.07,35.43,45.13,7,5,1401|1311|1303|1305|1373
+1305,2025,Sumatera Barat,Tanah Datar,52.0,41.48,52.0,resmi,XGBoost L2 d3 [insiden tetangga],41.48,42.4,47.0,7,5,1308|1306|1307|1303|1304
+1306,2025,Sumatera Barat,Padang Pariaman,74.0,69.22,74.0,resmi,XGBoost L2 d3 [insiden tetangga],69.22,73.5,58.36,5,5,1307|1305|1377|1371|1303
+1307,2025,Sumatera Barat,Agam,36.0,44.73,36.0,resmi,XGBoost L2 d3 [insiden tetangga],44.73,43.15,50.31,6,5,1306|1308|1312|1305|1309
+1308,2025,Sumatera Barat,Lima Puluh Kota,36.0,36.01,36.0,resmi,XGBoost L2 d3 [insiden tetangga],36.01,39.43,36.12,7,5,1406|1309|1307|1305|1376
+1309,2025,Sumatera Barat,Pasaman,49.0,50.34,49.0,resmi,XGBoost L2 d3 [insiden tetangga],50.34,52.75,46.59,6,5,1312|1202|1407|1308|1221
+1310,2025,Sumatera Barat,Solok Selatan,55.0,45.66,55.0,resmi,XGBoost L2 d3 [insiden tetangga],45.66,43.26,47.58,4,4,1311|1303|1302|1501
+1311,2025,Sumatera Barat,Dharmasraya,52.0,45.53,52.0,resmi,XGBoost L2 d3 [insiden tetangga],45.53,45.83,40.62,7,5,1310|1509|1304|1401|1508
+1312,2025,Sumatera Barat,Pasaman Barat,64.0,48.83,64.0,resmi,XGBoost L2 d3 [insiden tetangga],48.83,49.98,51.42,3,3,1309|1202|1307
+1371,2025,Sumatera Barat,Kota Padang,83.0,63.58,83.0,resmi,XGBoost L2 d3 [insiden tetangga],63.58,59.74,62.27,4,4,1303|1302|1306|1372
+1372,2025,Sumatera Barat,Kota Solok,109.0,92.77,109.0,resmi,XGBoost L2 d3 [insiden tetangga],92.77,88.51,95.59,2,2,1303|1371
+1373,2025,Sumatera Barat,Kota Sawah Lunto,38.0,42.84,38.0,resmi,XGBoost L2 d3 [insiden tetangga],42.84,51.44,50.25,3,3,1303|1304|1305
+1374,2025,Sumatera Barat,Kota Padang Panjang,71.0,90.0,71.0,resmi,XGBoost L2 d3 [insiden tetangga],90.0,92.71,93.19,1,1,1305
+1375,2025,Sumatera Barat,Kota Bukittinggi,139.0,107.67,139.0,resmi,XGBoost L2 d3 [insiden tetangga],107.67,94.57,96.52,1,1,1307
+1376,2025,Sumatera Barat,Kota Payakumbuh,57.0,78.02,57.0,resmi,XGBoost L2 d3 [insiden tetangga],78.02,87.58,87.93,1,1,1308
+1377,2025,Sumatera Barat,Kota Pariaman,74.0,106.32,74.0,resmi,XGBoost L2 d3 [insiden tetangga],106.32,100.38,95.03,1,1,1306
+1401,2025,Riau,Kuantan Singingi,66.0,46.8,66.0,resmi,XGBoost L2 d3 [insiden tetangga],46.8,49.89,48.97,6,5,1406|1304|1402|1404|1311
+1402,2025,Riau,Indragiri Hulu,51.0,48.36,51.0,resmi,XGBoost L2 d3 [insiden tetangga],48.36,49.82,54.63,4,4,1403|1404|1508|1401
+1403,2025,Riau,Indragiri Hilir,50.0,45.62,50.0,resmi,XGBoost L2 d3 [insiden tetangga],45.62,41.24,43.91,4,4,1402|1507|1404|1508
+1404,2025,Riau,Pelalawan,59.0,50.19,59.0,resmi,XGBoost L2 d3 [insiden tetangga],50.19,57.5,54.22,6,5,1405|1402|1406|1403|1401
+1405,2025,Riau,Siak,43.0,47.35,43.0,resmi,XGBoost L2 d3 [insiden tetangga],47.35,50.83,51.13,5,5,1408|1404|1406|1471|1407
+1406,2025,Riau,Kampar,51.0,51.22,51.0,resmi,XGBoost L2 d3 [insiden tetangga],51.22,54.15,55.05,7,5,1407|1308|1401|1404|1405
+1407,2025,Riau,Rokan Hulu,75.0,57.38,75.0,resmi,XGBoost L2 d3 [insiden tetangga],57.38,56.61,62.43,8,5,1406|1409|1221|1309|1220
+1408,2025,Riau,Bengkalis,70.0,50.26,70.0,resmi,XGBoost L2 d3 [insiden tetangga],50.26,53.77,55.4,4,4,1405|1473|1409|1407
+1409,2025,Riau,Rokan Hilir,63.0,51.52,63.0,resmi,XGBoost L2 d3 [insiden tetangga],51.52,52.41,45.17,6,5,1222|1407|1473|1408|1207
+1410,2025,Riau,Kepulauan Meranti,43.0,45.41,43.0,resmi,XGBoost L2 d3 [insiden tetangga],45.41,41.33,41.12,0,0,
+1471,2025,Riau,Kota Pekanbaru,114.0,69.34,114.0,resmi,XGBoost L2 d3 [insiden tetangga],69.34,73.6,67.99,3,3,1406|1405|1404
+1473,2025,Riau,Kota Dumai,96.0,59.46,96.0,resmi,XGBoost L2 d3 [insiden tetangga],59.46,63.88,63.66,2,2,1409|1408
+1501,2025,Jambi,Kerinci,60.53,42.45,60.53,resmi,XGBoost L2 d3 [insiden tetangga],42.45,37.59,41.2,7,5,1502|1572|1302|1310|1706
+1502,2025,Jambi,Merangin,58.05,62.01,58.05,resmi,XGBoost L2 d3 [insiden tetangga],62.01,60.87,60.87,8,5,1503|1509|1501|1706|1508
+1503,2025,Jambi,Sarolangun,64.09,46.03,64.09,resmi,XGBoost L2 d3 [insiden tetangga],46.03,45.86,53.81,5,5,1502|1613|1504|1606|1508
+1504,2025,Jambi,Batang Hari,62.27,47.16,62.27,resmi,XGBoost L2 d3 [insiden tetangga],47.16,45.86,50.77,5,5,1505|1503|1508|1507|1606
+1505,2025,Jambi,Muaro Jambi,49.86,36.84,49.86,resmi,XGBoost L2 d3 [insiden tetangga],36.84,38.42,38.11,6,5,1504|1506|1606|1571|1507
+1506,2025,Jambi,Tanjung Jabung Timur,56.56,42.77,56.56,resmi,XGBoost L2 d3 [insiden tetangga],42.77,47.67,41.89,4,4,1505|1507|1607|2104
+1507,2025,Jambi,Tanjung Jabung Barat,62.86,53.17,62.86,resmi,XGBoost L2 d3 [insiden tetangga],53.17,55.34,55.11,5,5,1403|1504|1506|1508|1505
+1508,2025,Jambi,Tebo,49.17,48.52,49.17,resmi,XGBoost L2 d3 [insiden tetangga],48.52,50.16,53.71,9,5,1509|1402|1504|1507|1502
+1509,2025,Jambi,Bungo,70.54,46.4,70.54,resmi,XGBoost L2 d3 [insiden tetangga],46.4,44.74,52.13,4,4,1508|1502|1311|1501
+1571,2025,Jambi,Kota Jambi,81.7,74.67,81.7,resmi,XGBoost L2 d3 [insiden tetangga],74.67,76.02,66.53,1,1,1505
+1572,2025,Jambi,Kota Sungai Penuh,150.13,59.64,150.13,resmi,XGBoost L2 d3 [insiden tetangga],59.64,54.08,64.95,2,2,1501|1302
+1601,2025,Sumatera Selatan,Ogan Komering Ulu,,52.0,52.0,estimasi model,XGBoost L2 d3 [insiden tetangga],52.0,52.09,53.45,4,4,1603|1609|1608|1610
+1602,2025,Sumatera Selatan,Ogan Komering Ilir,,46.77,46.77,estimasi model,XGBoost L2 d3 [insiden tetangga],46.77,47.54,44.79,7,5,1607|1811|1609|1610|1807
+1603,2025,Sumatera Selatan,Muara Enim,,50.17,50.17,estimasi model,XGBoost L2 d3 [insiden tetangga],50.17,50.43,55.98,11,5,1610|1604|1601|1612|1672
+1604,2025,Sumatera Selatan,Lahat,,48.71,48.71,estimasi model,XGBoost L2 d3 [insiden tetangga],48.71,50.24,54.47,6,5,1603|1673|1611|1605|1701
+1605,2025,Sumatera Selatan,Musi Rawas,,50.19,50.19,estimasi model,XGBoost L2 d3 [insiden tetangga],50.19,51.6,49.3,9,5,1613|1606|1674|1604|1702
+1606,2025,Sumatera Selatan,Musi Banyuasin,,59.86,59.86,estimasi model,XGBoost L2 d3 [insiden tetangga],59.86,63.49,59.13,7,5,1607|1505|1613|1612|1605
+1607,2025,Sumatera Selatan,Banyu Asin,,49.22,49.22,estimasi model,XGBoost L2 d3 [insiden tetangga],49.22,47.71,54.37,8,5,1606|1602|1671|1603|1505
+1608,2025,Sumatera Selatan,Ogan Komering Ulu Selatan,,43.13,43.13,estimasi model,XGBoost L2 d3 [insiden tetangga],43.13,42.27,40.27,6,5,1704|1601|1801|1807|1609
+1609,2025,Sumatera Selatan,Ogan Komering Ulu Timur,,55.15,55.15,estimasi model,XGBoost L2 d3 [insiden tetangga],55.15,52.68,59.97,5,5,1602|1601|1807|1608|1610
+1610,2025,Sumatera Selatan,Ogan Ilir,,49.25,49.25,estimasi model,XGBoost L2 d3 [insiden tetangga],49.25,48.57,49.47,7,5,1603|1602|1601|1609|1671
+1611,2025,Sumatera Selatan,Empat Lawang,,45.22,45.22,estimasi model,XGBoost L2 d3 [insiden tetangga],45.22,50.15,37.68,5,5,1604|1705|1702|1708|1605
+1612,2025,Sumatera Selatan,Penukal Abab Lematang Ilir,,58.05,58.05,estimasi model,XGBoost L2 d3 [insiden tetangga],58.05,55.71,57.47,5,5,1603|1606|1607|1672|1605
+1613,2025,Sumatera Selatan,Musi Rawas Utara,,59.71,59.71,estimasi model,XGBoost L2 d3 [insiden tetangga],59.71,57.87,59.02,5,5,1503|1605|1606|1707|1502
+1671,2025,Sumatera Selatan,Kota Palembang,,73.89,73.89,estimasi model,XGBoost L2 d3 [insiden tetangga],73.89,66.95,67.52,3,3,1607|1610|1603
+1672,2025,Sumatera Selatan,Kota Prabumulih,,61.84,61.84,estimasi model,XGBoost L2 d3 [insiden tetangga],61.84,69.16,70.14,3,3,1603|1612|1610
+1673,2025,Sumatera Selatan,Kota Pagar Alam,,53.42,53.42,estimasi model,XGBoost L2 d3 [insiden tetangga],53.42,58.94,57.23,4,4,1604|1701|1704|1603
+1674,2025,Sumatera Selatan,Kota Lubuklinggau,,67.75,67.75,estimasi model,XGBoost L2 d3 [insiden tetangga],67.75,72.8,81.42,2,2,1605|1702
+1701,2025,Bengkulu,Bengkulu Selatan,,34.12,34.12,estimasi model,XGBoost L2 d3 [insiden tetangga],34.12,34.25,32.75,4,4,1704|1705|1604|1673
+1702,2025,Bengkulu,Rejang Lebong,,37.15,37.15,estimasi model,XGBoost L2 d3 [insiden tetangga],37.15,41.77,42.87,7,5,1708|1605|1611|1674|1707
+1703,2025,Bengkulu,Bengkulu Utara,,44.65,44.65,estimasi model,XGBoost L2 d3 [insiden tetangga],44.65,46.25,40.44,5,5,1707|1706|1709|1702|1502
+1704,2025,Bengkulu,Kaur,,44.83,44.83,estimasi model,XGBoost L2 d3 [insiden tetangga],44.83,43.84,47.06,5,5,1608|1701|1801|1603|1673
+1705,2025,Bengkulu,Seluma,,45.23,45.23,estimasi model,XGBoost L2 d3 [insiden tetangga],45.23,47.0,44.66,5,5,1611|1701|1604|1709|1771
+1706,2025,Bengkulu,Mukomuko,,43.84,43.84,estimasi model,XGBoost L2 d3 [insiden tetangga],43.84,40.48,47.2,4,4,1703|1502|1302|1501
+1707,2025,Bengkulu,Lebong,,53.92,53.92,estimasi model,XGBoost L2 d3 [insiden tetangga],53.92,50.86,50.73,5,5,1703|1613|1702|1605|1502
+1708,2025,Bengkulu,Kepahiang,,48.88,48.88,estimasi model,XGBoost L2 d3 [insiden tetangga],48.88,54.18,56.47,3,3,1702|1611|1709
+1709,2025,Bengkulu,Bengkulu Tengah,,30.44,30.44,estimasi model,XGBoost L2 d3 [insiden tetangga],30.44,30.12,25.66,5,5,1708|1703|1771|1705|1702
+1771,2025,Bengkulu,Kota Bengkulu,,66.06,66.06,estimasi model,XGBoost L2 d3 [insiden tetangga],66.06,58.59,60.65,2,2,1709|1705
+1801,2025,Lampung,Lampung Barat,53.0,43.35,53.0,resmi,XGBoost L2 d3 [insiden tetangga],43.35,48.16,37.49,7,5,1813|1608|1802|1704|1807
+1802,2025,Lampung,Tanggamus,63.0,43.1,63.0,resmi,XGBoost L2 d3 [insiden tetangga],43.1,41.1,39.9,5,5,1813|1810|1801|1809|1805
+1803,2025,Lampung,Lampung Selatan,72.0,51.19,72.0,resmi,XGBoost L2 d3 [insiden tetangga],51.19,48.49,47.85,4,4,1804|1809|1871|1805
+1804,2025,Lampung,Lampung Timur,56.0,44.39,56.0,resmi,XGBoost L2 d3 [insiden tetangga],44.39,40.87,37.13,4,4,1803|1805|1872|1808
+1805,2025,Lampung,Lampung Tengah,54.0,52.34,54.0,resmi,XGBoost L2 d3 [insiden tetangga],52.34,50.83,45.5,10,5,1808|1804|1806|1809|1802
+1806,2025,Lampung,Lampung Utara,54.0,48.28,54.0,resmi,XGBoost L2 d3 [insiden tetangga],48.28,42.58,51.83,4,4,1805|1807|1812|1801
+1807,2025,Lampung,Way Kanan,65.0,48.42,65.0,resmi,XGBoost L2 d3 [insiden tetangga],48.42,47.84,55.02,6,5,1806|1609|1812|1608|1801
+1808,2025,Lampung,Tulangbawang,66.0,50.64,66.0,resmi,XGBoost L2 d3 [insiden tetangga],50.64,54.09,51.28,5,5,1805|1812|1811|1804|1602
+1809,2025,Lampung,Pesawaran,68.0,51.42,68.0,resmi,XGBoost L2 d3 [insiden tetangga],51.42,49.86,48.74,5,5,1810|1803|1805|1802|1871
+1810,2025,Lampung,Pringsewu,79.0,71.04,79.0,resmi,XGBoost L2 d3 [insiden tetangga],71.04,61.96,56.56,3,3,1809|1802|1805
+1811,2025,Lampung,Mesuji,65.0,48.85,65.0,resmi,XGBoost L2 d3 [insiden tetangga],48.85,50.19,55.02,3,3,1602|1808|1812
+1812,2025,Lampung,Tulang Bawang Barat,60.0,48.4,60.0,resmi,XGBoost L2 d3 [insiden tetangga],48.4,45.68,46.44,6,5,1808|1807|1806|1811|1805
+1813,2025,Lampung,Pesisir Barat,58.0,51.96,58.0,resmi,XGBoost L2 d3 [insiden tetangga],51.96,52.22,65.3,2,2,1801|1802
+1871,2025,Lampung,Kota Bandar Lampung,72.0,68.4,72.0,resmi,XGBoost L2 d3 [insiden tetangga],68.4,64.65,63.4,2,2,1803|1809
+1872,2025,Lampung,Kota Metro,99.0,96.12,99.0,resmi,XGBoost L2 d3 [insiden tetangga],96.12,97.34,90.64,2,2,1804|1805
+1901,2025,Kepulauan Bangka Belitung,Bangka,,44.81,44.81,estimasi model,XGBoost L2 d3 [insiden tetangga],44.81,42.51,44.37,3,3,1903|1904|1971
+1902,2025,Kepulauan Bangka Belitung,Belitung,,43.43,43.43,estimasi model,XGBoost L2 d3 [insiden tetangga],43.43,43.85,42.67,1,1,1906
+1903,2025,Kepulauan Bangka Belitung,Bangka Barat,,42.56,42.56,estimasi model,XGBoost L2 d3 [insiden tetangga],42.56,40.98,46.88,1,1,1901
+1904,2025,Kepulauan Bangka Belitung,Bangka Tengah,,48.63,48.63,estimasi model,XGBoost L2 d3 [insiden tetangga],48.63,47.27,38.67,3,3,1905|1901|1971
+1905,2025,Kepulauan Bangka Belitung,Bangka Selatan,,36.56,36.56,estimasi model,XGBoost L2 d3 [insiden tetangga],36.56,40.49,37.03,1,1,1904
+1906,2025,Kepulauan Bangka Belitung,Belitung Timur,,46.31,46.31,estimasi model,XGBoost L2 d3 [insiden tetangga],46.31,46.92,58.0,1,1,1902
+1971,2025,Kepulauan Bangka Belitung,Kota Pangkal Pinang,,65.19,65.19,estimasi model,XGBoost L2 d3 [insiden tetangga],65.19,65.61,68.26,2,2,1901|1904
+2101,2025,Kepulauan Riau,Karimun,,41.22,41.22,estimasi model,XGBoost L2 d3 [insiden tetangga],41.22,37.4,38.71,0,0,
+2102,2025,Kepulauan Riau,Bintan,,40.65,40.65,estimasi model,XGBoost L2 d3 [insiden tetangga],40.65,41.24,49.99,1,1,2172
+2103,2025,Kepulauan Riau,Natuna,,60.25,60.25,estimasi model,XGBoost L2 d3 [insiden tetangga],60.25,53.81,56.27,0,0,
+2104,2025,Kepulauan Riau,Lingga,,46.75,46.75,estimasi model,XGBoost L2 d3 [insiden tetangga],46.75,49.87,49.58,1,1,1506
+2105,2025,Kepulauan Riau,Kepulauan Anambas,,51.34,51.34,estimasi model,XGBoost L2 d3 [insiden tetangga],51.34,46.91,45.16,0,0,
+2171,2025,Kepulauan Riau,Kota Batam,,47.83,47.83,estimasi model,XGBoost L2 d3 [insiden tetangga],47.83,50.36,47.15,0,0,
+2172,2025,Kepulauan Riau,Kota Tanjung Pinang,,57.19,57.19,estimasi model,XGBoost L2 d3 [insiden tetangga],57.19,60.5,68.07,1,1,2102
