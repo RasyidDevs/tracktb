@@ -23,10 +23,11 @@ export function App() {
   const [faktorTemu, setFaktorTemu] = useState<number>(0.8);
   const [activeStrategy, setActiveStrategy] = useState<StrategyKey>('TRACK-TB');
 
-  const [dataSourceLabel, setDataSourceLabel] = useState<string>('Data Resmi Sumatera 2023-2025 (154 Wilayah)');
+  const [dataSourceLabel, setDataSourceLabel] = useState<string>('Data 2023-2025 (154 wilayah)');
   const [csvFeedback, setCsvFeedback] = useState<string | null>(null);
   const [methodOpen, setMethodOpen] = useState(false);
   const [teamOpen, setTeamOpen] = useState(false);
+  const [panelOpen, setPanelOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(
     typeof window !== 'undefined' ? window.innerWidth < 920 : false,
   );
@@ -433,28 +434,31 @@ export function App() {
             quotaByCode={quotaByCode}
             activeStrategyLabel={activeStrategy}
             onSelectRegion={handleSelectRegion}
+            panelOpen={panelOpen}
+            onTogglePanel={() => setPanelOpen((prev) => !prev)}
           />
         </section>
 
-        {/* Right Side Inspector Panel */}
-        <aside
-          aria-label="Panel analisis TRACK-TB"
-          className="panel-scroll"
-          style={{
-            width: isMobile ? '100%' : '420px',
-            flexShrink: 0,
-            height: isMobile ? 'auto' : '100%',
-            backgroundColor: 'var(--goku)',
-            borderLeft: isMobile ? 'none' : '1px solid var(--beerus)',
-            borderTop: isMobile ? '1px solid var(--beerus)' : 'none',
-            padding: '20px',
-            overflowX: 'hidden',
-            overflowY: isMobile ? 'visible' : 'auto',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '16px',
-          }}
-        >
+        {/* Right Side Inspector Panel (collapsible on desktop) */}
+        {(isMobile || panelOpen) && (
+          <aside
+            aria-label="Panel analisis TRACK-TB"
+            className="panel-scroll"
+            style={{
+              width: isMobile ? '100%' : '420px',
+              flexShrink: 0,
+              height: isMobile ? 'auto' : '100%',
+              backgroundColor: 'var(--goku)',
+              borderLeft: isMobile ? 'none' : '1px solid var(--beerus)',
+              borderTop: isMobile ? '1px solid var(--beerus)' : 'none',
+              padding: '20px',
+              overflowX: 'hidden',
+              overflowY: isMobile ? 'visible' : 'auto',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+            }}
+          >
           {/* Active Data Source Status Row (dot + plain text, no chip) */}
           <div
             style={{
@@ -531,7 +535,8 @@ export function App() {
             simBundle={simBundle}
             onShowQuotaOnMap={() => setMapMetric('kuota')}
           />
-        </aside>
+          </aside>
+        )}
       </main>
 
       <MethodologyModal open={methodOpen} onClose={() => setMethodOpen(false)} />

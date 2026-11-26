@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { Compass, Layers, RotateCcw } from 'lucide-react';
+import { ChevronDown, Layers, PanelRightClose, PanelRightOpen, RotateCcw } from 'lucide-react';
 import type { BasemapMode, MapMetric, RegionRecord } from '../types';
 import { estimasiGap } from '../lib/simulation';
 import { createThreeOverlayController, type ThreeOverlayController } from '../lib/threeMapLayer';
@@ -16,6 +16,8 @@ interface SumatraMap3DProps {
   quotaByCode: Record<string, number>;
   activeStrategyLabel: string;
   onSelectRegion: (kodeBps: string) => void;
+  panelOpen?: boolean;
+  onTogglePanel?: () => void;
 }
 
 const SUMATRA_CENTER: [number, number] = [101.4, -0.4];
@@ -145,6 +147,8 @@ export function SumatraMap3D({
   quotaByCode,
   activeStrategyLabel,
   onSelectRegion,
+  panelOpen = true,
+  onTogglePanel,
 }: SumatraMap3DProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
@@ -154,6 +158,7 @@ export function SumatraMap3D({
 
   const [is3D, setIs3D] = useState(true);
   const [basemap, setBasemap] = useState<BasemapMode>('osm_hijau');
+  const [legendOpen, setLegendOpen] = useState(false);
   const [mapReady, setMapReady] = useState(false);
   const [isNarrowMap, setIsNarrowMap] = useState(
     typeof window !== 'undefined' ? window.innerWidth < 640 : false,
@@ -345,7 +350,13 @@ export function SumatraMap3D({
       }
     });
 
+    const resizeObs = new ResizeObserver(() => {
+      map.resize();
+    });
+    resizeObs.observe(containerRef.current);
+
     return () => {
+      resizeObs.disconnect();
       map.remove();
       mapRef.current = null;
       threeCtrlRef.current = null;
@@ -487,7 +498,7 @@ export function SumatraMap3D({
     >
       <div ref={containerRef} style={{ width: '100%', height: '100%' }} />
 
-      {/* Top-left floating layer & basemap bar (Grid-4 spacing, custom borderless dropdown) */}
+      {/* Top-left floating layer & basemap bar (compact, no prefixes) */}
       <div
         style={{
           position: 'absolute',
@@ -511,11 +522,10 @@ export function SumatraMap3D({
           <Layers size={16} strokeWidth={1.75} style={{ color: 'var(--piccolo)', flexShrink: 0 }} />
           <BorderlessSelect<MapMetric>
             ariaLabel="Pilih metrik peta 3D"
-            prefix="Lapisan"
             value={metric}
             onChange={onMetricChange}
             options={[
-              { value: 'defisit', label: 'Defisit TC (Prediksi minus Asli)' },
+              { value: 'defisit', label: 'Defisit TC' },
               { value: 'prediksi', label: 'TC Prediksi 2025' },
               { value: 'kuota', label: `Kuota Skrining (${activeStrategyLabel})` },
               { value: 'beban', label: 'Beban Kasus Hilang' },
@@ -529,7 +539,6 @@ export function SumatraMap3D({
 
         <BorderlessSelect<BasemapMode>
           ariaLabel="Pilih gaya peta dasar OpenStreetMap"
-          prefix="Peta Dasar"
           value={basemap}
           onChange={setBasemap}
           options={[
@@ -540,15 +549,19 @@ export function SumatraMap3D({
         />
       </div>
 
-      {/* Top-right Three.js beacon indicator (desktop only, completely avoids bottom attribution) */}
-      {selectedRegion && !isNarrowMap && (
-        <div
+      {/* Top-right compact panel toggle button (desktop only) */}
+      {onTogglePanel && !isNarrowMap && (
+        <button
+          type="button"
+          className="pressable"
+          aria-label={panelOpen ? 'Tutup panel samping' : 'Buka panel samping'}
+          onClick={onTogglePanel}
           style={{
             position: 'absolute',
             top: '16px',
             right: '16px',
-            zIndex: 9,
-            display: 'flex',
+            zIndex: 10,
+            display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
             padding: '8px 12px',
@@ -558,19 +571,21 @@ export function SumatraMap3D({
             borderRadius: 'var(--radius-s-sm)',
             boxShadow: 'var(--shadow-sm)',
             fontSize: 'var(--text-xs)',
+            fontWeight: 500,
             color: 'var(--trunks)',
-            pointerEvents: 'none',
+            cursor: 'pointer',
           }}
         >
-          <Compass size={16} strokeWidth={1.75} style={{ color: 'var(--piccolo)' }} />
-          <span>
-            Busur 3D aktif untuk {selectedRegion.kabupatenKota} ({selectedRegion.jumlahTetanggaDipakai}{' '}
-            tetangga)
-          </span>
-        </div>
+          {panelOpen ? (
+            <PanelRightClose size={16} strokeWidth={1.75} style={{ color: 'var(--piccolo)' }} />
+          ) : (
+            <PanelRightOpen size={16} strokeWidth={1.75} style={{ color: 'var(--piccolo)' }} />
+          )}
+          <span>{panelOpen ? 'Sembunyikan panel' : 'Buka panel'}</span>
+        </button>
       )}
 
-      {/* Bottom-left camera + legend bar */}
+      {/* Bottom-left camera + collapsible legend bar */}
       <div
         style={{
           position: 'absolute',
@@ -580,7 +595,7 @@ export function SumatraMap3D({
           display: 'flex',
           flexDirection: 'column',
           gap: '8px',
-          padding: isNarrowMap ? '8px 12px' : '12px 16px',
+          padding: isNarrowMap ? '8px 12px' : '8px 16px',
           backgroundColor: 'rgba(255, 255, 255, 0.94)',
           backdropFilter: 'blur(10px)',
           border: '1px solid var(--beerus)',
@@ -589,7 +604,7 @@ export function SumatraMap3D({
           maxWidth: isNarrowMap ? 'calc(100% - 64px)' : 'calc(100% - 180px)',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <button
               type="button"
@@ -632,12 +647,47 @@ export function SumatraMap3D({
             }}
           >
             <RotateCcw size={14} strokeWidth={1.75} />
-            Reset Sumatera
+            Reset
           </button>
+
+          {!isNarrowMap && (
+            <>
+              <div style={{ width: '1px', height: '16px', backgroundColor: 'var(--beerus)' }} />
+              <button
+                type="button"
+                aria-expanded={legendOpen}
+                className="pressable"
+                onClick={() => setLegendOpen((prev) => !prev)}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  border: 'none',
+                  background: 'transparent',
+                  padding: '4px 0',
+                  fontSize: 'var(--text-sm)',
+                  fontWeight: 500,
+                  color: legendOpen ? 'var(--piccolo)' : 'var(--trunks)',
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                <span>Legenda</span>
+                <ChevronDown
+                  size={14}
+                  strokeWidth={1.75}
+                  style={{
+                    transform: legendOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transition: 'transform 160ms var(--ease-spring)',
+                  }}
+                />
+              </button>
+            </>
+          )}
         </div>
 
-        {/* Clean legend row (dot + text, token colors, hidden on super narrow mobile to keep map clear) */}
-        {!isNarrowMap && (
+        {/* Collapsible legend row (hidden by default) */}
+        {legendOpen && !isNarrowMap && (
           <div
             style={{
               display: 'flex',

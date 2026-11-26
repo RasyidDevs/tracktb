@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 import type { MainTab, RegionRecord, StrategyResultRow } from '../types';
 
 interface MascotGuideCardProps {
@@ -11,6 +13,8 @@ export function MascotGuideCard({
   selectedRegion,
   trackTbRow,
 }: MascotGuideCardProps) {
+  const [expanded, setExpanded] = useState(false);
+
   const defisit =
     selectedRegion.tcAsli2025 !== null
       ? selectedRegion.tcPrediksi2025 - selectedRegion.tcAsli2025
@@ -37,7 +41,7 @@ export function MascotGuideCard({
     const topItem = selectedRegion.shapItems[0];
     title = `Pendorong Utama ${selectedRegion.kabupatenKota}`;
     body = topItem
-      ? `Faktor terbesar adalah ${topItem.label.toLowerCase()} (${topItem.contributionPp >= 0 ? '+' : ''}${topItem.contributionPp.toFixed(2)} pp) terhadap nilai dasar 56,30%.`
+      ? `Faktor terbesar adalah ${topItem.label.toLowerCase()} (${topItem.contributionPp >= 0 ? '+' : ''}${topItem.contributionPp.toFixed(2)} pp) terhadap nilai dasar ${selectedRegion.shapBasePct.toFixed(2)}%.`
       : 'Kontribusi fitur dihitung secara aditif dengan TreeSHAP pada model XGBoost.';
   } else if (activeTab === 'simulasi') {
     title = 'Panduan Alokasi Skrining';
@@ -62,46 +66,79 @@ export function MascotGuideCard({
       <img
         src="/mascot-pointing.png"
         alt="Maskot Asisten TRACK-TB menunjuk catatan"
-        width={92}
-        height={92}
+        width={76}
+        height={76}
+        onClick={() => setExpanded((prev) => !prev)}
         style={{
-          width: '92px',
-          height: '92px',
+          width: '76px',
+          height: '76px',
           objectFit: 'contain',
           display: 'block',
           flexShrink: 0,
-          marginLeft: '-18px',
+          marginLeft: '-14px',
           transform: 'rotate(4deg)',
+          cursor: 'pointer',
         }}
       />
-      <div
-        className="moon-card"
+      <button
+        type="button"
+        aria-expanded={expanded}
+        className="moon-card pressable"
+        onClick={() => setExpanded((prev) => !prev)}
         style={{
           flex: 1,
           minWidth: 0,
-          padding: '16px 20px',
+          padding: '12px 16px',
+          textAlign: 'left',
+          cursor: 'pointer',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: expanded ? '8px' : 0,
         }}
       >
         <div
           style={{
-            fontSize: 'var(--text-sm)',
-            fontWeight: 600,
-            color: 'var(--piccolo-deep)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '8px',
           }}
         >
-          {title}
+          <span
+            style={{
+              fontSize: 'var(--text-sm)',
+              fontWeight: 600,
+              color: 'var(--piccolo-deep)',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: expanded ? 'normal' : 'nowrap',
+            }}
+          >
+            {title}
+          </span>
+          <ChevronDown
+            size={16}
+            strokeWidth={1.75}
+            style={{
+              color: 'var(--piccolo)',
+              flexShrink: 0,
+              transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
+              transition: 'transform 160ms var(--ease-spring)',
+            }}
+          />
         </div>
-        <div
-          style={{
-            fontSize: 'var(--text-xs)',
-            color: 'var(--trunks)',
-            marginTop: '4px',
-            lineHeight: 1.45,
-          }}
-        >
-          {body}
-        </div>
-      </div>
+        {expanded && (
+          <div
+            style={{
+              fontSize: 'var(--text-xs)',
+              color: 'var(--trunks)',
+              lineHeight: 1.45,
+            }}
+          >
+            {body}
+          </div>
+        )}
+      </button>
     </div>
   );
 }

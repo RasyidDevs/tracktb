@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { MapPin, Search, SlidersHorizontal } from 'lucide-react';
+import { ChevronDown, MapPin, Search, SlidersHorizontal } from 'lucide-react';
 import {
   COVERAGE_SUMMARY,
   FINALIST_TEST_METRICS,
@@ -44,14 +44,6 @@ interface InspectorPanelProps {
   onShowQuotaOnMap: () => void;
 }
 
-const QUICK_PICKS = [
-  { code: '1377', label: 'Kota Pariaman' },
-  { code: '1102', label: 'Aceh Singkil' },
-  { code: '1301', label: 'Kep. Mentawai' },
-  { code: '1376', label: 'Kota Payakumbuh' },
-  { code: '1307', label: 'Agam' },
-];
-
 export function InspectorPanel({
   activeTab,
   regions,
@@ -72,6 +64,7 @@ export function InspectorPanel({
 }: InspectorPanelProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [provinceFilter, setProvinceFilter] = useState('Semua');
+  const [showRegionDetail, setShowRegionDetail] = useState(false);
   const [shapMode, setShapMode] = useState<'lokal' | 'global'>('lokal');
   const [showTop10Val, setShowTop10Val] = useState(false);
 
@@ -182,41 +175,6 @@ export function InspectorPanel({
               <span className="tabular" style={{ fontSize: 'var(--text-xs)', color: 'var(--trunks)' }}>
                 {filteredRegions.length} wilayah
               </span>
-            </div>
-
-            {/* Quick text jump links (no chips, plain underlined links) */}
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '12px',
-                paddingTop: '4px',
-                borderTop: '1px solid var(--beerus)',
-              }}
-            >
-              {QUICK_PICKS.map((item) => {
-                const isActive = selectedRegion.kodeBps === item.code;
-                return (
-                  <button
-                    key={item.code}
-                    type="button"
-                    className="pressable"
-                    onClick={() => onSelectRegion(item.code)}
-                    style={{
-                      border: 'none',
-                      background: 'transparent',
-                      padding: '4px 0',
-                      fontSize: 'var(--text-xs)',
-                      fontWeight: isActive ? 600 : 500,
-                      color: isActive ? 'var(--piccolo)' : 'var(--trunks)',
-                      borderBottom: isActive ? '2px solid var(--piccolo)' : '2px solid transparent',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    {item.label}
-                  </button>
-                );
-              })}
             </div>
           </div>
 
@@ -342,66 +300,99 @@ export function InspectorPanel({
               </div>
             </div>
 
-            {/* Dekomposisi & Kesepakatan 3 Model */}
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '8px',
-                paddingTop: '12px',
-                borderTop: '1px solid var(--beerus)',
-                fontSize: 'var(--text-xs)',
-                color: 'var(--trunks)',
-              }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span>Kesenjangan struktural (perkiraan)</span>
-                <span className="tabular" style={{ fontWeight: 600, color: 'var(--bulma)' }}>
-                  {Math.round(selectedDecomp.gapStruktural).toLocaleString('id-ID')} kasus
-                </span>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span>Kesenjangan programatik</span>
-                <span
-                  className="tabular"
-                  style={{
-                    fontWeight: 600,
-                    color: selectedDecomp.gapProgramatik > 0 ? 'var(--chichi)' : 'var(--piccolo)',
-                  }}
-                >
-                  {selectedDecomp.gapProgramatik >= 0 ? '+' : ''}
-                  {Math.round(selectedDecomp.gapProgramatik).toLocaleString('id-ID')} kasus
-                </span>
-              </div>
-              <div
+            {/* Collapsible Dekomposisi & Kesepakatan 3 Model */}
+            <div style={{ paddingTop: '8px', borderTop: '1px solid var(--beerus)' }}>
+              <button
+                type="button"
+                aria-expanded={showRegionDetail}
+                className="pressable"
+                onClick={() => setShowRegionDetail((prev) => !prev)}
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-                  gap: '8px',
-                  marginTop: '4px',
-                  paddingTop: '8px',
-                  borderTop: '1px dashed var(--beerus)',
+                  width: '100%',
+                  border: 'none',
+                  background: 'transparent',
+                  padding: '4px 0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  fontSize: 'var(--text-xs)',
+                  fontWeight: 600,
+                  color: 'var(--piccolo)',
+                  cursor: 'pointer',
                 }}
               >
-                <div>
-                  <div>XGBoost</div>
-                  <div className="tabular" style={{ fontWeight: 600, color: 'var(--piccolo)' }}>
-                    {selectedRegion.tcPrediksiXgboost.toFixed(1)}%
+                <span>Rincian dekomposisi dan 3 model</span>
+                <ChevronDown
+                  size={14}
+                  strokeWidth={1.75}
+                  style={{
+                    transform: showRegionDetail ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transition: 'transform 160ms var(--ease-spring)',
+                  }}
+                />
+              </button>
+
+              {showRegionDetail && (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '8px',
+                    paddingTop: '12px',
+                    fontSize: 'var(--text-xs)',
+                    color: 'var(--trunks)',
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span>Kesenjangan struktural (perkiraan)</span>
+                    <span className="tabular" style={{ fontWeight: 600, color: 'var(--bulma)' }}>
+                      {Math.round(selectedDecomp.gapStruktural).toLocaleString('id-ID')} kasus
+                    </span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span>Kesenjangan programatik</span>
+                    <span
+                      className="tabular"
+                      style={{
+                        fontWeight: 600,
+                        color: selectedDecomp.gapProgramatik > 0 ? 'var(--chichi)' : 'var(--piccolo)',
+                      }}
+                    >
+                      {selectedDecomp.gapProgramatik >= 0 ? '+' : ''}
+                      {Math.round(selectedDecomp.gapProgramatik).toLocaleString('id-ID')} kasus
+                    </span>
+                  </div>
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+                      gap: '8px',
+                      marginTop: '4px',
+                      paddingTop: '8px',
+                      borderTop: '1px dashed var(--beerus)',
+                    }}
+                  >
+                    <div>
+                      <div>XGBoost</div>
+                      <div className="tabular" style={{ fontWeight: 600, color: 'var(--piccolo)' }}>
+                        {selectedRegion.tcPrediksiXgboost.toFixed(1)}%
+                      </div>
+                    </div>
+                    <div>
+                      <div>LightGBM</div>
+                      <div className="tabular" style={{ fontWeight: 600, color: 'var(--bulma)' }}>
+                        {selectedRegion.tcPrediksiLightgbm.toFixed(1)}%
+                      </div>
+                    </div>
+                    <div>
+                      <div>CatBoost</div>
+                      <div className="tabular" style={{ fontWeight: 600, color: 'var(--bulma)' }}>
+                        {selectedRegion.tcPrediksiCatboost.toFixed(1)}%
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div>
-                  <div>LightGBM</div>
-                  <div className="tabular" style={{ fontWeight: 600, color: 'var(--bulma)' }}>
-                    {selectedRegion.tcPrediksiLightgbm.toFixed(1)}%
-                  </div>
-                </div>
-                <div>
-                  <div>CatBoost</div>
-                  <div className="tabular" style={{ fontWeight: 600, color: 'var(--bulma)' }}>
-                    {selectedRegion.tcPrediksiCatboost.toFixed(1)}%
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -505,23 +496,25 @@ export function InspectorPanel({
                             : `${r.tcPrediksi2025.toFixed(1)}%`}
                         </span>
                       </div>
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          fontSize: 'var(--text-xs)',
-                          color: 'var(--trunks)',
-                          gap: '8px',
-                        }}
-                      >
-                        <span>{r.provinsi}</span>
-                        <span className="tabular">
-                          {r.tcAsli2025 !== null
-                            ? `Pred ${r.tcPrediksi2025.toFixed(1)}% vs Asli ${r.tcAsli2025.toFixed(1)}%`
-                            : 'Estimasi model'}
-                        </span>
-                      </div>
+                      {(provinceFilter === 'Semua' || r.tcAsli2025 !== null) && (
+                        <div
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            fontSize: 'var(--text-xs)',
+                            color: 'var(--trunks)',
+                            gap: '8px',
+                          }}
+                        >
+                          {provinceFilter === 'Semua' && <span>{r.provinsi}</span>}
+                          {r.tcAsli2025 !== null && (
+                            <span className="tabular">
+                              Pred {r.tcPrediksi2025.toFixed(1)}% vs Asli {r.tcAsli2025.toFixed(1)}%
+                            </span>
+                          )}
+                        </div>
+                      )}
                       <div
                         style={{
                           width: '100%',
