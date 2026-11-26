@@ -1,0 +1,67 @@
+/* Moon Design System v1 Semantic Tokens — Green Brand Theme + /uiux-ku Rules */
+:root {
+  /* Surfaces & Neutrals (Moon DBZ Tokens) */
+  --goku: #F3F7F4;
+  --gohan: #FFFFFF;
+  --beerus: #D8E4DD;
+  --beerus-strong: #B6CBC0;
+  --bulma: #0E1F18;
+  --trunks: #526A60;
+  --goten: #FFFFFF;
+  --jiren: rgba(17, 122, 102, 0.08);
+  --heles: rgba(14, 31, 24, 0.04);
+
+  /* Brand & Semantic Accents (Emerald Botanical Theme) */
+  --piccolo: #117A66;
+  --piccolo-hover: #0D6453;
+  --piccolo-deep: #0A4A3E;
+  --hit: #226D72;
+  --roshi: #2E9E6B;
+  --roshi-10: rgba(46, 158, 107, 0.12);
+  --krillin: #C27D1A;
+  --krillin-10: rgba(194, 125, 26, 0.12);
+  --chichi: #B45441;
+  --chichi-10: rgba(180, 84, 65, 0.12);
+
+  /* Map & Surface Subtle */
+  --map-water: #E5EFE9;
+  --map-missing: #84B59F;
+  --map-zero: #CBDCD2;
+  --map-low: #73AE92;
+  --map-mid: #2E9E6B;
+  --surface-subtle: #E9F2EC;
+
+  /* Moon Radius */
+  --radius-i-xs: 4px;
+  --radius-i-sm: 8px;
+  --radius-i-md: 12px;
+  --radius-s-sm: 8px;
+  --radius-s-md: 12px;
+  --radius-s-lg: 16px;
+
+  /* Moon Elevation */
+  --shadow-sm: 0 4px 12px -2px rgba(14, 31, 24, 0.06), 0 1px 3px rgba(14, 31, 24, 0.04);
+  --shadow-md: 0 8px 24px -4px rgba(14, 31, 24, 0.09), 0 2px 6px rgba(14, 31, 24, 0.04);
+  --shadow-lg: 0 16px 36px -6px rgba(14, 31, 24, 0.12), 0 4px 12px rgba(14, 31, 24, 0.05);
+
+  /* /uiux-ku Strict 6-Step Font Scale & 3 Weights */
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 17px;
+  --text-lg: 20px;
+  --text-kpi: 34px;
+
+  /* /uiux-ku Grid 4 Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Apple-style spring cubic-bezier */
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}

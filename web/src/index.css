@@ -1,0 +1,214 @@
+@import './styles/tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.45;
+  color: var(--bulma);
+  background-color: var(--goku);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tactile press (Apple-like spring) */
+.pressable {
+  transition: transform 160ms var(--ease-spring), background-color 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+
+.pressable:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* /uiux-ku: Underlined Moon Tabs (NO chips/pills) */
+.moon-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-1);
+  height: 100%;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--trunks);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 140ms ease, border-color 140ms ease;
+}
+
+.moon-tab:hover {
+  color: var(--bulma);
+}
+
+.moon-tab[aria-selected='true'] {
+  color: var(--piccolo);
+  font-weight: 600;
+  border-bottom-color: var(--piccolo);
+}
+
+.moon-subtab {
+  padding: var(--space-2) 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--trunks);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 140ms ease, border-color 140ms ease;
+}
+
+.moon-subtab:hover {
+  color: var(--bulma);
+}
+
+.moon-subtab[aria-selected='true'] {
+  color: var(--piccolo);
+  font-weight: 600;
+  border-bottom-color: var(--piccolo);
+}
+
+/* /uiux-ku: Borderless dropdown (colored text + chevron, NO frame) */
+.borderless-select-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.borderless-select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  padding: var(--space-1) var(--space-5) var(--space-1) 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--piccolo);
+  cursor: pointer;
+  outline: none;
+}
+
+.borderless-select:focus-visible {
+  text-decoration: underline;
+}
+
+/* /uiux-ku: Uniform card container (20px padding, 16px Moon surface radius) */
+.moon-card {
+  background-color: var(--gohan);
+  border: 1px solid var(--beerus);
+  border-radius: var(--radius-s-lg);
+  padding: var(--space-5);
+}
+
+/* /uiux-ku: Optical dot alignment with text x-height */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  transform: translateY(0.5px);
+}
+
+/* Range slider Moon emerald style */
+input[type='range'].moon-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--beerus);
+  outline: none;
+  cursor: pointer;
+}
+
+input[type='range'].moon-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--piccolo);
+  border: 2px solid var(--gohan);
+  box-shadow: var(--shadow-sm);
+  transition: transform 150ms var(--ease-spring);
+}
+
+input[type='range'].moon-range::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+}
+
+input[type='range'].moon-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--piccolo);
+  border: 2px solid var(--gohan);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Clean custom scrollbar */
+.panel-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel-scroll::-webkit-scrollbar-thumb {
+  background: var(--beerus-strong);
+  border-radius: 999px;
+}
+
+/* MapLibre popup/controls clean theme */
+.maplibregl-ctrl-attrib {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: var(--trunks) !important;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .pressable:active:not(:disabled) {
+    transform: none;
+  }
+}
