@@ -750,18 +750,18 @@ export function InspectorPanel({
               <button
                 type="button"
                 className="moon-subtab pressable"
-                aria-selected={simScope === 'validasi57'}
-                onClick={() => onSimScopeChange('validasi57')}
+                aria-selected={simScope === 'uji2025'}
+                onClick={() => onSimScopeChange('uji2025')}
               >
-                Validasi 57 Wilayah
+                Uji 2025 (57 Wilayah)
               </button>
               <button
                 type="button"
                 className="moon-subtab pressable"
-                aria-selected={simScope === 'proyeksi154'}
-                onClick={() => onSimScopeChange('proyeksi154')}
+                aria-selected={simScope === 'uji2024'}
+                onClick={() => onSimScopeChange('uji2024')}
               >
-                Proyeksi 154 Wilayah
+                Uji 2024 (71 Wilayah)
               </button>
             </div>
 
@@ -869,7 +869,10 @@ export function InspectorPanel({
             {/* Unified Strategy List (no separate chart + table) */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingTop: '8px', borderTop: '1px solid var(--beerus)' }}>
               <div style={{ fontSize: 'var(--text-xs)', color: 'var(--trunks)' }}>
-                Pilih strategi untuk memproyeksikan kuota wilayah ke peta 3D.
+                {simScope === 'uji2025'
+                  ? 'Kuota disusun dari data 2024, lalu dinilai dengan TC resmi 2025.'
+                  : 'Kuota disusun dari data 2023 (prediksi out-of-fold), lalu dinilai dengan TC resmi 2024.'}{' '}
+                Pilih strategi untuk menampilkan kuotanya di peta 3D. Kepadatan kasus hilang dan TC rendah adalah pembanding tanpa model.
               </div>
               {simBundle.summary.map((row) => {
                 const isSelected = row.strategi === activeStrategy;

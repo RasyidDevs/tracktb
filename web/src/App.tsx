@@ -18,7 +18,7 @@ export function App() {
   const [highlightedNeighborCode, setHighlightedNeighborCode] = useState<string | null>(null);
   const [mapMetric, setMapMetric] = useState<MapMetric>('defisit');
 
-  const [simScope, setSimScope] = useState<SimScope>('validasi57');
+  const [simScope, setSimScope] = useState<SimScope>('uji2025');
   const [anggaran, setAnggaran] = useState<number>(100_000);
   const [faktorTemu, setFaktorTemu] = useState<number>(0.8);
   const [activeStrategy, setActiveStrategy] = useState<StrategyKey>('TRACK-TB');
@@ -86,11 +86,7 @@ export function App() {
 
   const handleSimScopeChange = (nextScope: SimScope) => {
     setSimScope(nextScope);
-    if (nextScope === 'validasi57') {
-      setActiveStrategy('TRACK-TB');
-    } else {
-      setActiveStrategy('Proyeksi beban');
-    }
+    setActiveStrategy('TRACK-TB');
   };
 
   const handleSelectRegion = (code: string) => {

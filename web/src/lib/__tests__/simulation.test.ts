@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import regionsRaw from '../../data/regions.json';
-import { NOTEBOOK_BENCHMARK_154, NOTEBOOK_BENCHMARK_57 } from '../../data/benchmarkData';
+import { NOTEBOOK_BENCHMARK_2024, NOTEBOOK_BENCHMARK_2025 } from '../../data/benchmarkData';
 import { mergePrediksiCsv } from '../csvImport';
 import { bagiAnggaran, estimasiGap, hitungDekomposisiGap, runSimulasi } from '../simulation';
 import type { RegionRecord } from '../../types';
@@ -41,18 +41,18 @@ describe('TRACK-TB pure logic & benchmark parity', () => {
     }
   });
 
-  it('matches notebook default 57-region and 154-region simulation outputs at 100,000 budget and 0.80 factor', () => {
-    const sim57 = runSimulasi(regions, 'validasi57', 100_000, 0.8);
-    expect(sim57.regionCount).toBe(57);
-    for (const row of sim57.summary) {
-      const target = NOTEBOOK_BENCHMARK_57[row.strategi as keyof typeof NOTEBOOK_BENCHMARK_57];
+  it('matches notebook rolling tests (2025: 57 regions, 2024: 71 regions) at 100,000 budget and 0.80 factor', () => {
+    const sim2025 = runSimulasi(regions, 'uji2025', 100_000, 0.8);
+    expect(sim2025.regionCount).toBe(57);
+    for (const row of sim2025.summary) {
+      const target = NOTEBOOK_BENCHMARK_2025[row.strategi as keyof typeof NOTEBOOK_BENCHMARK_2025];
       expect(row.ekspektasiKasus).toBeCloseTo(target, 1);
     }
 
-    const sim154 = runSimulasi(regions, 'proyeksi154', 100_000, 0.8);
-    expect(sim154.regionCount).toBe(154);
-    for (const row of sim154.summary) {
-      const target = NOTEBOOK_BENCHMARK_154[row.strategi as keyof typeof NOTEBOOK_BENCHMARK_154];
+    const sim2024 = runSimulasi(regions, 'uji2024', 100_000, 0.8);
+    expect(sim2024.regionCount).toBe(71);
+    for (const row of sim2024.summary) {
+      const target = NOTEBOOK_BENCHMARK_2024[row.strategi as keyof typeof NOTEBOOK_BENCHMARK_2024];
       expect(row.ekspektasiKasus).toBeCloseTo(target, 1);
     }
   });

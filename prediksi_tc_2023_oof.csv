@@ -1,0 +1,155 @@
+﻿kode_bps,provinsi,kabupaten_kota,tc_resmi_2023_pct,tc_prediksi_oof_2023_pct
+1101,Aceh,Simeulue,55.1,49.9751
+1102,Aceh,Aceh Singkil,53.87,44.807
+1103,Aceh,Aceh Selatan,97.75,54.6852
+1104,Aceh,Aceh Tenggara,81.25,63.3078
+1105,Aceh,Aceh Timur,51.21,66.0006
+1106,Aceh,Aceh Tengah,34.93,48.038
+1107,Aceh,Aceh Barat,52.74,53.2438
+1108,Aceh,Aceh Besar,28.02,43.6717
+1109,Aceh,Pidie,63.18,61.0909
+1110,Aceh,Bireuen,61.0,54.558
+1111,Aceh,Aceh Utara,45.24,43.0512
+1112,Aceh,Aceh Barat Daya,63.23,41.7199
+1113,Aceh,Gayo Lues,66.49,47.3747
+1114,Aceh,Aceh Tamiang,42.21,43.3879
+1115,Aceh,Nagan Raya,65.66,75.8212
+1116,Aceh,Aceh Jaya,61.99,62.1782
+1117,Aceh,Bener Meriah,23.84,50.8856
+1118,Aceh,Pidie Jaya,52.53,47.8683
+1171,Aceh,Kota Banda Aceh,94.66,82.304
+1172,Aceh,Kota Sabang,25.27,73.2226
+1173,Aceh,Kota Langsa,62.69,72.0933
+1174,Aceh,Kota Lhokseumawe,102.02,65.1444
+1175,Aceh,Kota Subulussalam,98.58,55.0356
+1201,Sumatera Utara,Nias,164.93,41.9112
+1202,Sumatera Utara,Mandailing Natal,70.1,49.7873
+1203,Sumatera Utara,Tapanuli Selatan,56.62,53.6007
+1204,Sumatera Utara,Tapanuli Tengah,50.03,73.3694
+1205,Sumatera Utara,Tapanuli Utara,85.73,54.7885
+1206,Sumatera Utara,Toba Samosir,80.76,48.8576
+1207,Sumatera Utara,Labuhan Batu,49.71,46.9565
+1208,Sumatera Utara,Asahan,48.46,52.4094
+1209,Sumatera Utara,Simalungun,59.14,52.4817
+1210,Sumatera Utara,Dairi,103.12,72.0362
+1211,Sumatera Utara,Karo,58.51,57.1046
+1212,Sumatera Utara,Deli Serdang,46.99,61.5272
+1213,Sumatera Utara,Langkat,52.79,54.2733
+1214,Sumatera Utara,Nias Selatan,29.31,43.8701
+1215,Sumatera Utara,Humbang Hasundutan,54.27,79.1864
+1216,Sumatera Utara,Pakpak Bharat,86.25,67.6631
+1217,Sumatera Utara,Samosir,66.21,64.4883
+1218,Sumatera Utara,Serdang Bedagai,56.53,51.7455
+1219,Sumatera Utara,Batu Bara,50.75,66.2189
+1220,Sumatera Utara,Padang Lawas Utara,61.88,45.9081
+1221,Sumatera Utara,Padang Lawas,57.57,45.6271
+1222,Sumatera Utara,Labuhan Batu Selatan,47.68,51.8609
+1223,Sumatera Utara,Labuhan Batu Utara,56.49,44.2427
+1224,Sumatera Utara,Nias Utara,14.78,57.1527
+1225,Sumatera Utara,Nias Barat,35.46,69.9815
+1271,Sumatera Utara,Kota Sibolga,169.08,75.1136
+1272,Sumatera Utara,Kota Tanjung Balai,56.78,90.3869
+1273,Sumatera Utara,Kota Pematang Siantar,108.12,81.4636
+1274,Sumatera Utara,Kota Tebing Tinggi,100.61,95.5837
+1275,Sumatera Utara,Kota Medan,52.77,74.9404
+1276,Sumatera Utara,Kota Binjai,52.52,73.6451
+1277,Sumatera Utara,Kota Padangsidimpuan,61.83,70.0843
+1278,Sumatera Utara,Kota Gunungsitoli,54.23,78.3011
+1301,Sumatera Barat,Kepulauan Mentawai,51.8,51.9446
+1302,Sumatera Barat,Pesisir Selatan,68.9,54.8208
+1303,Sumatera Barat,Solok,30.29,55.0001
+1304,Sumatera Barat,Sijunjung,32.31,43.6587
+1305,Sumatera Barat,Tanah Datar,42.38,45.3496
+1306,Sumatera Barat,Padang Pariaman,90.99,48.6076
+1307,Sumatera Barat,Agam,36.33,48.9198
+1308,Sumatera Barat,Lima Puluh Kota,30.1,41.5927
+1309,Sumatera Barat,Pasaman,68.99,44.9776
+1310,Sumatera Barat,Solok Selatan,50.42,45.5892
+1311,Sumatera Barat,Dharmasraya,39.74,47.0012
+1312,Sumatera Barat,Pasaman Barat,65.58,48.7767
+1371,Sumatera Barat,Kota Padang,66.08,56.7148
+1372,Sumatera Barat,Kota Solok,99.36,85.7321
+1373,Sumatera Barat,Kota Sawah Lunto,37.38,62.2362
+1374,Sumatera Barat,Kota Padang Panjang,88.88,84.8437
+1375,Sumatera Barat,Kota Bukittinggi,106.75,103.0095
+1376,Sumatera Barat,Kota Payakumbuh,67.99,95.4592
+1377,Sumatera Barat,Kota Pariaman,108.45,93.6822
+1401,Riau,Kuantan Singingi,45.78,42.8329
+1402,Riau,Indragiri Hulu,41.12,52.0271
+1403,Riau,Indragiri Hilir,39.68,43.6049
+1404,Riau,Pelalawan,41.14,53.3844
+1405,Riau,Siak,26.83,51.3793
+1406,Riau,Kampar,33.99,50.5608
+1407,Riau,Rokan Hulu,52.3,50.2975
+1408,Riau,Bengkalis,53.98,51.0001
+1409,Riau,Rokan Hilir,44.67,51.3322
+1410,Riau,Kepulauan Meranti,42.37,44.6835
+1471,Riau,Kota Pekanbaru,77.12,60.3062
+1473,Riau,Kota Dumai,70.31,55.8059
+1501,Jambi,Kerinci,22.02,50.5776
+1502,Jambi,Merangin,61.12,58.4202
+1503,Jambi,Sarolangun,44.98,49.3926
+1504,Jambi,Batang Hari,53.34,45.8737
+1505,Jambi,Muaro Jambi,26.57,44.769
+1506,Jambi,Tanjung Jabung Timur,37.99,58.3612
+1507,Jambi,Tanjung Jabung Barat,47.74,53.1325
+1508,Jambi,Tebo,50.19,52.584
+1509,Jambi,Bungo,50.24,46.3823
+1571,Jambi,Kota Jambi,70.62,77.4745
+1572,Jambi,Kota Sungai Penuh,74.53,46.9069
+1601,Sumatera Selatan,Ogan Komering Ulu,51.28,48.44
+1602,Sumatera Selatan,Ogan Komering Ilir,53.5,45.7771
+1603,Sumatera Selatan,Muara Enim,53.53,46.8315
+1604,Sumatera Selatan,Lahat,61.1,41.1626
+1605,Sumatera Selatan,Musi Rawas,62.96,40.5161
+1606,Sumatera Selatan,Musi Banyuasin,61.34,60.855
+1607,Sumatera Selatan,Banyu Asin,61.05,45.9806
+1608,Sumatera Selatan,Ogan Komering Ulu Selatan,51.44,40.4868
+1609,Sumatera Selatan,Ogan Komering Ulu Timur,56.43,51.2272
+1610,Sumatera Selatan,Ogan Ilir,53.29,45.7491
+1611,Sumatera Selatan,Empat Lawang,51.79,45.9062
+1612,Sumatera Selatan,Penukal Abab Lematang Ilir,52.26,54.3222
+1613,Sumatera Selatan,Musi Rawas Utara,78.9,49.6405
+1671,Sumatera Selatan,Kota Palembang,73.26,71.3158
+1672,Sumatera Selatan,Kota Prabumulih,66.8,56.2814
+1673,Sumatera Selatan,Kota Pagar Alam,49.1,58.3351
+1674,Sumatera Selatan,Kota Lubuklinggau,71.85,56.723
+1701,Bengkulu,Bengkulu Selatan,42.13,32.2424
+1702,Bengkulu,Rejang Lebong,36.67,51.5362
+1703,Bengkulu,Bengkulu Utara,32.37,58.4267
+1704,Bengkulu,Kaur,40.25,47.4689
+1705,Bengkulu,Seluma,26.79,65.5969
+1706,Bengkulu,Mukomuko,51.71,46.5285
+1707,Bengkulu,Lebong,49.61,66.0388
+1708,Bengkulu,Kepahiang,47.24,59.8423
+1709,Bengkulu,Bengkulu Tengah,13.76,49.1205
+1771,Bengkulu,Kota Bengkulu,60.97,75.0284
+1801,Lampung,Lampung Barat,38.63,53.7244
+1802,Lampung,Tanggamus,31.68,48.6991
+1803,Lampung,Lampung Selatan,45.39,54.8898
+1804,Lampung,Lampung Timur,27.13,50.6869
+1805,Lampung,Lampung Tengah,56.68,47.6382
+1806,Lampung,Lampung Utara,42.95,45.9418
+1807,Lampung,Way Kanan,29.29,51.2698
+1808,Lampung,Tulangbawang,55.23,54.5338
+1809,Lampung,Pesawaran,40.36,54.3975
+1810,Lampung,Pringsewu,85.38,54.0082
+1811,Lampung,Mesuji,51.77,46.411
+1812,Lampung,Tulang Bawang Barat,39.22,47.1504
+1813,Lampung,Pesisir Barat,37.24,55.4142
+1871,Lampung,Kota Bandar Lampung,75.04,65.5803
+1872,Lampung,Kota Metro,102.13,84.0189
+1901,Kepulauan Bangka Belitung,Bangka,43.71,41.206
+1902,Kepulauan Bangka Belitung,Belitung,50.51,42.6657
+1903,Kepulauan Bangka Belitung,Bangka Barat,25.63,47.9283
+1904,Kepulauan Bangka Belitung,Bangka Tengah,45.7,44.8591
+1905,Kepulauan Bangka Belitung,Bangka Selatan,30.27,45.6521
+1906,Kepulauan Bangka Belitung,Belitung Timur,43.9,52.1174
+1971,Kepulauan Bangka Belitung,Kota Pangkal Pinang,63.52,69.6393
+2101,Kepulauan Riau,Karimun,41.17,44.6192
+2102,Kepulauan Riau,Bintan,35.97,43.0811
+2103,Kepulauan Riau,Natuna,70.06,45.2367
+2104,Kepulauan Riau,Lingga,42.38,50.4329
+2105,Kepulauan Riau,Kepulauan Anambas,46.39,55.922
+2171,Kepulauan Riau,Kota Batam,45.3,54.543
+2172,Kepulauan Riau,Kota Tanjung Pinang,52.04,60.7949

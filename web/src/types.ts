@@ -1,13 +1,14 @@
 export type MainTab = 'peta' | 'shap' | 'simulasi' | 'model';
 export type MapMetric = 'defisit' | 'prediksi' | 'kuota' | 'beban';
 export type BasemapMode = 'osm_hijau' | 'osm_standar' | 'polos';
-export type SimScope = 'validasi57' | 'proyeksi154';
+export type SimScope = 'uji2025' | 'uji2024';
 export type StrategyKey =
   | 'Merata'
   | 'Berdasarkan penduduk'
   | 'TRACK-TB'
-  | 'Beban TC asli'
-  | 'Proyeksi beban';
+  | 'Beban kasus hilang'
+  | 'Kepadatan kasus hilang'
+  | 'TC rendah';
 
 export interface ShapFeatureItem {
   feature: string;
@@ -46,6 +47,8 @@ export interface RegionRecord {
   insiden2023: number;
   insiden2024: number;
   insiden2025Proyeksi: number;
+  tcAsli2023: number;
+  tcPrediksiOof2023: number;
   tcAsli2024: number | null;
   tcPrediksi2024: number;
   tcAsli2025: number | null;

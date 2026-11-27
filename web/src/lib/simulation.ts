@@ -122,16 +122,22 @@ export interface SimulationBundle {
   maxQuota: number;
 }
 
+/**
+ * Pengujian bergulir, sama dengan research.ipynb:
+ * - uji2025: bobot dari informasi 2024, dinilai dengan TC resmi 2025 (57 wilayah).
+ * - uji2024: bobot dari informasi 2023 (TC prediksi out-of-fold), dinilai dengan TC resmi 2024 (71 wilayah).
+ * Wilayah tanpa TC resmi pada tahun informasi atau tahun uji tidak diikutsertakan.
+ */
 export function runSimulasi(
   regions: RegionRecord[],
   scope: SimScope,
   anggaran: number,
   faktorTemu: number,
 ): SimulationBundle {
-  const eligible =
-    scope === 'validasi57'
-      ? regions.filter((r) => r.tcAsli2025 !== null && r.tcAsli2024 !== null)
-      : regions;
+  const is2025 = scope === 'uji2025';
+  const eligible = is2025
+    ? regions.filter((r) => r.tcAsli2025 !== null && r.tcAsli2024 !== null)
+    : regions.filter((r) => r.tcAsli2024 !== null && Number.isFinite(r.tcAsli2023));
 
   const sortedEligible = [...eligible].sort((a, b) => a.kodeBps.localeCompare(b.kodeBps));
   const codes = sortedEligible.map((r) => r.kodeBps);
@@ -140,42 +146,41 @@ export function runSimulasi(
   const merataByCode: Record<string, number> = {};
   const pendudukByCode: Record<string, number> = {};
   const trackTbByCode: Record<string, number> = {};
-  const bebanAsliByCode: Record<string, number> = {};
-  const proyeksiBebanByCode: Record<string, number> = {};
+  const bebanByCode: Record<string, number> = {};
+  const kepadatanByCode: Record<string, number> = {};
+  const tcRendahByCode: Record<string, number> = {};
   const gapEvalByCode: Record<string, number> = {};
 
   for (const r of sortedEligible) {
-    kapasitasByCode[r.kodeBps] = Math.max(1, Math.round(r.penduduk2025));
-    merataByCode[r.kodeBps] = 1;
-    pendudukByCode[r.kodeBps] = r.penduduk2025;
+    const pendudukUji = is2025 ? r.penduduk2025 : r.penduduk2024;
+    const pendudukInfo = is2025 ? r.penduduk2024 : r.penduduk2023;
+    const tcInfo = is2025 ? (r.tcAsli2024 as number) : r.tcAsli2023;
+    const tcPrediksiInfo = is2025 ? r.tcPrediksi2024 : r.tcPrediksiOof2023;
+    const insidenInfo = is2025 ? r.insiden2024 : r.insiden2023;
+    const insidenUji = is2025 ? r.insiden2025Proyeksi : r.insiden2024;
+    const tcUji = is2025 ? (r.tcAsli2025 as number) : (r.tcAsli2024 as number);
 
-    if (scope === 'validasi57') {
-      const selisih2024 = r.tcPrediksi2024 - (r.tcAsli2024 ?? 0);
-      trackTbByCode[r.kodeBps] = Math.max(0, selisih2024);
-      bebanAsliByCode[r.kodeBps] = estimasiGap(r.insiden2024, r.tcAsli2024 ?? 0);
-      gapEvalByCode[r.kodeBps] = estimasiGap(r.insiden2025Proyeksi, r.tcAsli2025 ?? r.tcPrediksi2025);
-    } else {
-      proyeksiBebanByCode[r.kodeBps] = estimasiGap(r.insiden2025Proyeksi, r.tcPrediksi2025);
-      gapEvalByCode[r.kodeBps] = proyeksiBebanByCode[r.kodeBps];
-    }
+    kapasitasByCode[r.kodeBps] = Math.max(1, Math.round(pendudukUji));
+    merataByCode[r.kodeBps] = 1;
+    pendudukByCode[r.kodeBps] = kapasitasByCode[r.kodeBps];
+    trackTbByCode[r.kodeBps] = Math.max(0, tcPrediksiInfo - tcInfo);
+    bebanByCode[r.kodeBps] = estimasiGap(insidenInfo, tcInfo);
+    kepadatanByCode[r.kodeBps] = bebanByCode[r.kodeBps] / Math.max(1, pendudukInfo);
+    tcRendahByCode[r.kodeBps] = Math.max(0, 100 - tcInfo);
+    gapEvalByCode[r.kodeBps] = estimasiGap(insidenUji, tcUji);
   }
 
   const totalCap = codes.reduce((acc, c) => acc + kapasitasByCode[c], 0);
   const clampedAnggaran = Math.min(Math.max(1000, Math.round(anggaran)), totalCap);
 
-  const strategies: Array<{ key: StrategyKey; weights: Record<string, number> }> =
-    scope === 'validasi57'
-      ? [
-          { key: 'Merata', weights: merataByCode },
-          { key: 'Berdasarkan penduduk', weights: pendudukByCode },
-          { key: 'TRACK-TB', weights: trackTbByCode },
-          { key: 'Beban TC asli', weights: bebanAsliByCode },
-        ]
-      : [
-          { key: 'Merata', weights: merataByCode },
-          { key: 'Berdasarkan penduduk', weights: pendudukByCode },
-          { key: 'Proyeksi beban', weights: proyeksiBebanByCode },
-        ];
+  const strategies: Array<{ key: StrategyKey; weights: Record<string, number> }> = [
+    { key: 'Merata', weights: merataByCode },
+    { key: 'Berdasarkan penduduk', weights: pendudukByCode },
+    { key: 'TRACK-TB', weights: trackTbByCode },
+    { key: 'Beban kasus hilang', weights: bebanByCode },
+    { key: 'Kepadatan kasus hilang', weights: kepadatanByCode },
+    { key: 'TC rendah', weights: tcRendahByCode },
+  ];
 
   const allocByStrategy: Record<string, Record<string, number>> = {};
   const casesByStrategy: Record<string, Record<string, number>> = {};

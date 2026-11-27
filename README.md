@@ -32,7 +32,7 @@
 - **Peta Spasial 3D Interaktif (MapLibre GL JS + Three.js):** Poligon ekstrusi 3D untuk 154 kabupaten/kota di atas peta dasar OpenStreetMap (`OSM Hijau`, `OSM Standar`, `Kanvas Terang`) dengan beacon vertikal dan busur parabolik 3D ke wilayah tetangga.
 - **Audit Defisit & Dekomposisi:** Menampilkan TC resmi 2025 (57 wilayah di 4 provinsi), estimasi model untuk 97 wilayah tanpa laporan resmi 2025, kesepakatan XGBoost/LightGBM/CatBoost, serta pemisahan kesenjangan struktural dan programatik.
 - **Penjelasan TreeSHAP Lokal & Global:** Rincian kontribusi tiap fitur (dalam poin persentase) yang dapat diklik untuk menyorot busur 3D tetangga di peta.
-- **Simulasi Alokasi Skrining Interaktif:** Menguji strategi `Merata`, `Berdasarkan penduduk`, `TRACK-TB`, `Beban TC asli`, dan `Proyeksi beban` dengan slider anggaran skrining dan faktor temu, serta memproyeksikan kuotanya langsung ke tinggi poligon 3D.
+- **Simulasi Alokasi Skrining Interaktif:** Dua pengujian bergulir (uji 2025 pada 57 wilayah dan uji 2024 pada 71 wilayah) untuk strategi `Merata`, `Berdasarkan penduduk`, `TRACK-TB`, `Beban kasus hilang`, serta dua pembanding tanpa model (`Kepadatan kasus hilang`, `TC rendah`), dengan slider anggaran skrining dan faktor temu. Kuota strategi terpilih diproyeksikan ke tinggi poligon 3D.
 - **Impor CSV Langsung:** Mendukung unggah berkas `prediksi_tc_2025.csv` dari notebook untuk memperbarui visualisasi secara langsung di browser.
 
 ---
@@ -52,22 +52,18 @@ Model dilatih menggunakan data tahun **2023** (`154` wilayah), dipilih berdasark
 
 ### Simulasi 100.000 Skrining (Faktor Temu Asumsi `0,80`)
 
-**Validasi pada 57 wilayah dengan TC resmi 2024 dan 2025:**
+Alokasi disusun dengan informasi tahun *t*, lalu dinilai dengan TC resmi tahun *t* + 1. Wilayah tanpa TC resmi tidak diikutsertakan. Karena model dilatih dengan data 2023, selisih TC 2023 memakai prediksi *out-of-fold* lima lipatan (rata-rata 10 pembagian acak, `prediksi_tc_2023_oof.csv`).
 
-| Strategi | Skrining | Ekspektasi Kasus | Kasus per 1.000 Skrining | Selisih vs Penduduk |
-|---|---:|---:|---:|---:|
-| **TRACK-TB** | **100.000** | **148,53** | **1,49** | **+37,38** |
-| Beban TC asli | 100.000 | 127,15 | 1,27 | +16,00 |
-| Merata | 100.000 | 113,34 | 1,13 | +2,20 |
-| Berdasarkan penduduk | 100.000 | 111,15 | 1,11 | 0,00 |
+| Strategi | Uji 2024 (71 wilayah) | Uji 2025 (57 wilayah) |
+|---|---:|---:|
+| **TRACK-TB** | **161,47** | **148,53** |
+| Kepadatan kasus hilang (tanpa model) | 150,43 | 136,43 |
+| TC rendah (tanpa model) | 147,08 | 134,30 |
+| Beban kasus hilang | 129,80 | 127,15 |
+| Merata | 129,47 | 113,34 |
+| Berdasarkan penduduk | 116,56 | 111,15 |
 
-**Proyeksi pada 154 wilayah se-Sumatera:**
-
-| Strategi | Skrining | Ekspektasi Kasus | Kasus per 1.000 Skrining | Selisih vs Penduduk |
-|---|---:|---:|---:|---:|
-| **Proyeksi beban** | **100.000** | **172,95** | **1,73** | **+18,53** |
-| Berdasarkan penduduk | 100.000 | 154,43 | 1,54 | 0,00 |
-| Merata | 100.000 | 140,68 | 1,41 | -13,75 |
+Nilai adalah ekspektasi kasus tambahan ditemukan menurut model, bukan hasil lapangan. Pada uji 2024, TRACK-TB tertinggi pada 10 dari 10 pembagian *out-of-fold* (rentang 154,9–172,2 kasus).
 
 ---
 
@@ -79,6 +75,7 @@ tracktb/
 │   ├── TRACK-TB_Join_Sumatera_2023.xlsx
 │   ├── TRACK-TB_Join_Sumatera_2024.xlsx
 │   └── TRACK-TB_Join_Sumatera_2025.xlsx
+├── prediksi_tc_2023_oof.csv
 ├── prediksi_tc_2025.csv
 ├── research.ipynb
 ├── web/

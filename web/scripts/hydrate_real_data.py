@@ -8,6 +8,7 @@ WEB_DIR = Path(__file__).resolve().parent.parent
 REPO_DIR = WEB_DIR.parent
 DATA_DIR = REPO_DIR / "data"
 CSV_PATH = REPO_DIR / "prediksi_tc_2025.csv"
+OOF_2023_PATH = REPO_DIR / "prediksi_tc_2023_oof.csv"
 REGIONS_PATH = WEB_DIR / "src" / "data" / "regions.json"
 GEOJSON_PATH = WEB_DIR / "public" / "data" / "sumatra_kabkota.geojson"
 
@@ -61,6 +62,8 @@ def main() -> None:
     kemendagri_by_code = {r["kodeBps"]: r["kodeKemendagri"] for r in existing_regions}
 
     frames = {year: load_year(year) for year in YEARS}
+    # Prediksi out-of-fold 2023 dari research.ipynb (bobot TRACK-TB pada pengujian 2024)
+    oof_2023 = pd.read_csv(OOF_2023_PATH, dtype={"kode_bps": str}, encoding="utf-8-sig").set_index("kode_bps")
     codes = frames[2023].index
     if len(codes) != 154:
         raise ValueError(f"Expected 154 codes, got {len(codes)}")
@@ -222,6 +225,8 @@ def main() -> None:
             "insiden2023": round(float(incidence_2023.at[code]), 2),
             "insiden2024": round(float(inc_2024_full.at[code]), 4),
             "insiden2025Proyeksi": round(float(inc_2025_proj.at[code]), 4),
+            "tcAsli2023": round(float(frames[2023].at[code, TARGET]), 4),
+            "tcPrediksiOof2023": round(float(oof_2023.at[code, "tc_prediksi_oof_2023_pct"]), 4),
             "tcAsli2024": tc24,
             "tcPrediksi2024": round(float(pred_2024.at[code]), 4),
             "tcAsli2025": tc25,

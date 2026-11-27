@@ -226,15 +226,21 @@ export const FEATURE_LABELS: Record<string, string> = {
   kasus_tetangga_5: 'Estimasi kasus tetangga 5',
 };
 
-export const NOTEBOOK_BENCHMARK_57 = {
+/** Hasil research.ipynb pada 100.000 skrining dan faktor temu 0,80. */
+export const NOTEBOOK_BENCHMARK_2025 = {
   Merata: 113.34,
   'Berdasarkan penduduk': 111.15,
   'TRACK-TB': 148.53,
-  'Beban TC asli': 127.15,
+  'Beban kasus hilang': 127.15,
+  'Kepadatan kasus hilang': 136.43,
+  'TC rendah': 134.3,
 };
 
-export const NOTEBOOK_BENCHMARK_154 = {
-  Merata: 140.68,
-  'Berdasarkan penduduk': 154.43,
-  'Proyeksi beban': 172.95,
+export const NOTEBOOK_BENCHMARK_2024 = {
+  Merata: 129.47,
+  'Berdasarkan penduduk': 116.56,
+  'TRACK-TB': 161.47,
+  'Beban kasus hilang': 129.8,
+  'Kepadatan kasus hilang': 150.43,
+  'TC rendah': 147.08,
 };
